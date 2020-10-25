@@ -76,17 +76,5 @@ namespace notes
 
             await Navigation.PopAsync();
         }
-
-        /*async void OnDeleteButtonClicked(object sender, EventArgs e)
-        {
-            var note = (Note)BindingContext;
-
-            if (File.Exists(note.Filename))
-            {
-                File.Delete(note.Filename);
-            }
-
-            await Navigation.PopAsync();
-        }*/
     }
 }

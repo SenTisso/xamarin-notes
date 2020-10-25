@@ -28,6 +28,7 @@ namespace notes
             InitializeComponent();
 
             var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
             // (sirka displeje) - (padding na jedne strane * 2)
             App.notesListWidth = (mainDisplayInfo.Width / mainDisplayInfo.Density) - (16);
 

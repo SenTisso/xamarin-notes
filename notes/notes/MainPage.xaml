@@ -13,20 +13,20 @@
             <StackLayout
                 Padding="16">
                 <ListView
-                        WidthRequest="{x:Static notes:App.notesListWidth}"
-                        Margin="0"
-                        x:Name="listView"
-                        ItemSelected="OnNoteSelected"
-                        SeparatorColor="#666">
+                    WidthRequest="{x:Static notes:App.notesListWidth}"
+                    Margin="0"
+                    x:Name="listView"
+                    ItemSelected="OnNoteSelected"
+                    SeparatorColor="#666">
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell
-                                    Text="{Binding Title}"
-                                    TextColor="#fff"
-                                    DetailColor="#aaa"
-                                    Detail="{Binding Text}"
-                                    x:Name="{Binding ID}" />
+                                Text="{Binding Title}"
+                                TextColor="#fff"
+                                DetailColor="#aaa"
+                                Detail="{Binding Text}"
+                                x:Name="{Binding ID}" />
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
