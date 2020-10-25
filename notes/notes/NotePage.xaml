@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="notes.NotePage"
+             BackgroundColor="#000">
+    <ContentPage.Resources>
+        <!-- pridavani properties pro vsechny editory -->
+
+        <Style TargetType="Editor" x:Key="labelBaseStyle">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="TextColor" Value="#fff" />
+            <Setter Property="PlaceholderColor" Value="#666" />
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+
+        <Style TargetType="Editor" BasedOn="{StaticResource labelBaseStyle}"></Style> <!-- proste prida base styly vsem labelum -->
+
+    </ContentPage.Resources>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Smazat" Clicked="OnNoteDeleted" Order="Secondary" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="16,3">
+            <Editor
+                Placeholder="Enter your title"
+                Text="{Binding Title}"
+                AutoSize="TextChanges"
+                Unfocused="OnEditorUnfocus"
+                FontSize="18"
+                FontAttributes="Bold"/>
+            
+            <Editor Placeholder="Enter your note"
+                Text="{Binding Text}"
+                AutoSize="TextChanges"
+                Unfocused="OnEditorUnfocus" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

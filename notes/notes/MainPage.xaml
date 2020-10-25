@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:notes="clr-namespace:notes"
+             x:Class="notes.MainPage"
+             Title="Notes"
+             BackgroundColor="#000">
+    <!-- #1d1d1d -->
+
+    <AbsoluteLayout>
+
+        <ScrollView AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1">
+            <StackLayout
+                Padding="16">
+                <ListView
+                        WidthRequest="{x:Static notes:App.notesListWidth}"
+                        Margin="0"
+                        x:Name="listView"
+                        ItemSelected="OnNoteSelected"
+                        SeparatorColor="#666">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell
+                                    Text="{Binding Title}"
+                                    TextColor="#fff"
+                                    DetailColor="#aaa"
+                                    Detail="{Binding Text}"
+                                    x:Name="{Binding ID}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+
+        <Button
+            Clicked="OnAddNote"
+            BackgroundColor="Transparent"
+            Text="+"
+            FontSize="36"
+            TextColor="#e9ab0b"
+            AbsoluteLayout.LayoutFlags="PositionProportional"  
+            AbsoluteLayout.LayoutBounds=".95,.95,56,56" 
+        >
+        </Button>
+    </AbsoluteLayout>
+
+</ContentPage>
