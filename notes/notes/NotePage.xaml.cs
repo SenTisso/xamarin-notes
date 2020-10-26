@@ -20,23 +20,6 @@ namespace notes
             InitializeComponent();
         }
 
-        /*async void OnSaveButtonClicked(object sender, EventArgs e)
-        {
-            var note = (Note)BindingContext;
-            Debug.WriteLine(note.ID);
-
-            if (note.ID != null)
-            {
-                await App.Database.EditNote(note);
-            }
-            else
-            {
-                await App.Database.SaveNote(note);
-            }
-
-            await Navigation.PopAsync();
-        }*/
-
         /// <summary>kdyz se unfocusne input u poznamky</summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -49,8 +32,6 @@ namespace notes
             // kdyz ma ID...
             if (note.ID != null)
             {
-                Debug.WriteLine("edit");
-                Debug.WriteLine(note.ID);
 
                 // tak poznamku upravit
                 await App.Database.EditNote(note);
@@ -59,12 +40,13 @@ namespace notes
             {
                 // kdyz nema ID, tak ji vytvorit
 
-                if (!(note.Title == "" && note.Text == "")) // pokud poznamka neni uplne prazdna
+                if (!(note.Title == null && note.Text == null)) // pokud poznamka neni uplne prazdna
                 {
                     note.ID = await App.Database.CreateNote(note); // tak ji vytvor a nastav nove ID
                 }
             }
         }
+
         async void OnNoteDeleted(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
